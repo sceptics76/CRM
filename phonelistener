@@ -1,0 +1,20 @@
+   boolean phoneDialed = false;
+PhoneStateListener phoneStateListener = new PhoneStateListener() {
+    @Override
+    public void onCallStateChanged(int state, String incomingNumber) {
+        if (state == TelephonyManager.CALL_STATE_RINGING) {
+
+        } else if (state == TelephonyManager.CALL_STATE_IDLE) {
+
+            if (phoneDialed = true) {
+                // Start your activity
+
+                // Make it false again for next use
+                phoneDialed = false;
+            }
+        } else if (state == TelephonyManager.CALL_STATE_OFFHOOK) {
+            phoneDialed = true;
+        }
+        super.onCallStateChanged(state, incomingNumber);
+    }
+};
